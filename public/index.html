@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <title></title>
+    <script src="javascripts/jquery-1.7.1.js"></script>
+    <script src="javascripts/index.js"></script>
+</head>
+<body>
+<P>JavaScript常见问题</p>
+
+
+<script type="text/javascript">
+
+    var pageSize = 100;
+
+    var constants = new (function () {
+        var pageSize = 10;
+        this.getPageSize = function () {
+            return pageSize;
+        }
+    })();
+
+    //null 和 undefine 区别。
+    var user;
+    console.log(user);//undefined
+    if (!user)console.log('user is null');
+    if (user == null)console.log('user is null');
+    if (user !== null)console.log('user is not null');
+    if (user == undefined)console.log('user is undefined');
+    user = null;
+    if (user !== undefined)console.log('user is not undefined');
+
+
+    //获取浏览器的requestAnimationFrame
+
+    var requestAnimationFrame = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
+
+    console.log(requestAnimationFrame.toString());
+
+
+    console.log('常量：constants.getPageSize() = ' + constants.getPageSize());
+
+    console.log('全局变量pageSize：' + pageSize);
+
+</script>
+
+</body>
+</html>

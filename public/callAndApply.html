@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /**定义一个Cat类*/
+    function Cat() {
+        this.name = "Cat";
+    }
+
+    //使用call和apply
+    /**定义一个animal类*/
+    function Animal() {
+        this.name = "Animal";
+        this.showName = function (add) {
+            console.log(add);
+            console.log(this);
+        }
+    }
+
+
+    /**创建两个类对象*/
+    var animal = new Animal();
+    var cat = new Cat();
+
+    //通过call或apply方法，将原本属于Animal对象的showName()方法交给当前对象cat来使用了。
+    //输入结果为"Cat"
+    animal.showName.call(cat, ",");
+    animal.showName.apply(cat, ['hello world']);
+
+
+    function Product(name, price) {
+        this.name = name;
+        this.price = price;
+        console.log(this);
+    }
+
+    function Food(name, price) {
+        Product.call(this, name, price);
+        this.category = '食品';
+    }
+    Food.prototype = new Product();
+
+    var food = new Food('面包', 5);
+    food2=new Food('牛奶', 3);
+
+</script>
+</body>
+</html>

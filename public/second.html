@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //变量命名演示
+    function a() {
+        function Person() {
+            this.name = '张三';
+            this.whoAreYou = function () {
+                console.log(this.name);
+            }
+        }
+
+        var person = new Person();
+        person.whoAreYou();
+
+        //    person.name = '张三';
+        person['.@a'] = {public:'李四', private:'王五'};
+
+        for (var i in person) {
+            console.log('key :  ' + i);
+            console.log('value :  ' + person[i]);
+        }
+    }
+
+    //prototype 继承
+    function testPrototype() {
+        function Person() {
+            this.name = '张三';
+            this.whoAreYou = function () {
+                console.log(this.name);
+            }
+        }
+
+//        function Person() {
+//            this.name = '张三';
+//        }
+//
+//        Person.prototype.whoAreYou = function () {
+//            console.log(this.name);
+//        };
+
+        function Soldier() {
+        }
+
+        Soldier.prototype = new Person();
+        var s = new Soldier();
+        console.log(s);
+        s.whoAreYou();
+
+    }
+
+    testPrototype();
+
+
+        a();
+
+</script>
+</body>
+</html>

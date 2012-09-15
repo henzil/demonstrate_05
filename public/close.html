@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    function User() {
+        var _name = '张三';
+        return {
+            getName:function(){
+                return _name;
+            },
+            setName:function(name){
+                _name=name;
+            }
+        };
+    }
+
+    var user = new User();
+    user.setName('hello world');
+    console.log(user.getName());
+
+    function ArgTest(a,b){
+        for(var i in arguments){
+            console.log(i);
+            arguments[i] = 'c'+i;
+        }
+
+
+        console.log(a);
+        console.log(b);
+    }
+
+    ArgTest('a','b');
+</script>
+
+</body>
+</html>

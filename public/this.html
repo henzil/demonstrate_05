@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //this的使用
+    console.log(this);
+    function testThis() {
+        console.log(this);
+    }
+    testThis();
+    var test = new testThis();
+
+    var constants = new (function () {
+        console.log(this);
+    })();
+
+    //使用call和apply
+    /**定义一个animal类*/
+    function Animal() {
+        this.name = "Animal";
+        this.showName = function () {
+            console.log(this);
+        }
+    }
+    /**定义一个Cat类*/
+    function Cat() {
+        this.name = "Cat";
+    }
+
+    /**创建两个类对象*/
+    var animal = new Animal();
+    var cat = new Cat();
+
+    //通过call或apply方法，将原本属于Animal对象的showName()方法交给当前对象cat来使用了。
+    //输入结果为"Cat"
+    animal.showName.call(cat, ",");
+    animal.showName.apply(cat, []);
+
+    //对象方法内部的函数，无法直接使用该对象的this
+    function commpany(){
+        this.firstName = 'commpany';
+        this.getName = function(){
+            var that = this;
+            return function(){
+                console.log(this);
+                return this.firstName;
+//                return that.name;
+            }
+        }
+    }
+    var c = new commpany();
+    console.log(c.getName()());
+
+
+</script>
+</body>
+</html>

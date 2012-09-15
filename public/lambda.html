@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+//    function printName() {
+//        var name = this.name || 'defalut name';
+//        console.log(name);
+//    }
+//
+//    printName();
+
+    function Person() {
+        this.name = '张三';
+    }
+    var p = new Person();
+
+    var printName=function() {
+        var name = this.name || 'defalut name';
+        console.log(name);
+    }
+    p.printName=printName;
+    p.printName();
+
+</script>
+</body>
+</html>

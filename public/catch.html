@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<script>
+
+    try{
+
+//        throw new  Error( "抛出异常信息 " );
+        throw {'message':'error!'};
+    } catch(e){
+        console.log(e);
+    } finally{
+        alert('最终一定执行');
+    }
+
+
+</script>
+
+</body>
+</html>
