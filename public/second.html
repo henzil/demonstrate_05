@@ -33,6 +33,11 @@
             console.log('key :  ' + i);
             console.log('value :  ' + person[i]);
         }
+
+        //delete 操作
+        console.log('delete person.name 之前 : ',person.name);
+        delete(person.name);
+        console.log('delete person.name 之后 : ',person.name);
     }
 
     //prototype 继承
