@@ -56,6 +56,18 @@
     var c = new commpany();
     console.log(c.getName()());
 
+    //TODO 函数赋值给别名函数后，this并不传递
+    function Foo() {}
+    Foo.prototype.method = function() {
+        console.log('>>>>>',this);
+    };
+
+    function Bar() {
+//        console.log('this : ',this);
+    }
+    Bar.prototype = Foo.prototype;
+    new Foo().method();
+    new Bar().method();
 
 </script>
 </body>
